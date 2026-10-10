@@ -220,27 +220,58 @@
       </div>
     </section>
 
-    <!-- 7. ABOUT US -->
-    <section id="about" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16">
-      <div class="border-t border-stone-200 pt-10 grid md:grid-cols-3 gap-10">
-        <div>
-          <div class="font-display text-2xl font-bold">LU'S</div>
-          <p class="text-stone-500 text-sm leading-7 mt-3">Quality & modern apparel retail and wholesale. ရှမ်းပြည်နယ်၊ တောင်ကြီးမြို့မှ Lu's Collections.</p>
+    <!-- 7. ABOUT US / SHOP INFORMATION -->
+    <section id="about" class="w-full min-h-[calc(100svh-64px)] pt-0 pb-10 sm:pb-14 bg-white">
+      <div class="w-full max-w-none mx-auto px-0">
+        <!-- Full shop wallpaper: keep the complete artwork visible on desktop and mobile -->
+        <div class="w-full overflow-hidden bg-[#f8efe3]">
+          <img src="/about-wallpaper.png" alt="Lu's Collections Fashion Shop logo and QR codes" class="block w-full h-auto max-h-none object-contain" loading="eager" fetchpriority="high" style="width:100%;height:auto;object-fit:contain">
         </div>
-        <div>
-          <h3 class="font-semibold">Customer care</h3>
-          <div class="text-sm text-stone-500 space-y-2 mt-3">
-            <p>📞 <a id="shopPhoneLink" href="tel:09-XXXXXXXXX" class="hover:text-rose-600"><span id="shopPhone">09-XXXXXXXXX</span></a></p>
-            <p>🕘 Daily • 9:00 AM – 6:00 PM</p>
-            <p>📍 <span id="shopAddress">တောင်ကြီးမြို့၊ ရှမ်းပြည်နယ်</span></p>
-            <div id="socialLinks" class="flex flex-wrap gap-2 pt-2"></div>
+
+        <!-- Store profile and icon-only social links -->
+        <div class="text-center w-full max-w-5xl mx-auto px-4 sm:px-6 mt-6 sm:mt-8">
+          <h2 class="font-display text-xl sm:text-2xl md:text-3xl font-bold leading-snug">☘️ 𝐋𝐮’𝐬 𝐂𝐨𝐥𝐥𝐞𝐜𝐭𝐢𝐨𝐧𝐬 𝐅𝐚𝐬𝐡𝐢𝐨𝐧 𝐒𝐡𝐨𝐩 ☘️</h2>
+          <p class="text-stone-500 text-xs sm:text-sm mt-2">Quality &amp; Modern Apparel Retail &amp; Wholesale</p>
+          <div id="socialLinks" class="flex items-center justify-center flex-wrap gap-3 mt-5" aria-label="Shop social media links"></div>
+        </div>
+
+        <!-- Shop address and exact shop map pin -->
+        <div class="w-full mt-8 sm:mt-10 border-y border-stone-200 bg-stone-50 p-4 sm:p-6 lg:p-8 grid grid-cols-1 md:grid-cols-5 gap-5 sm:gap-6">
+          <div class="md:col-span-2 space-y-4 min-w-0">
+            <h3 class="font-display font-bold text-stone-900 text-lg sm:text-xl">Our Location</h3>
+            <p class="text-sm sm:text-base text-stone-700 flex items-start gap-2 leading-7">
+              <i data-lucide="map-pin" class="w-5 h-5 text-rose-600 shrink-0 mt-1"></i>
+              <span>အနောက်မြို့ပတ်လမ်း ကြပ်တန်းလမ်းဆုံ<br>အရင် KBZ Bank နေရာ၊ သဲဆုဝေ စတိုး ၂ ဆိုင်ကျော်၊ ညောင်ဖြူစခန်း၊ တောင်ကြီးမြို့</span>
+            </p>
+            <div class="text-sm sm:text-base text-stone-700 space-y-2">
+              <p class="flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4 text-rose-600 shrink-0"></i><a href="tel:09428326702" class="font-semibold hover:text-rose-600">𝟬𝟵 𝟰𝟮𝟴𝟯𝟮𝟲𝟳𝟬𝟮</a></p>
+              <p class="flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4 text-rose-600 shrink-0"></i><a href="tel:09428335562" class="font-semibold hover:text-rose-600">𝟎𝟗 𝟒𝟐𝟖𝟑𝟑𝟓𝟓𝟔𝟐</a></p>
+            </div>
+            <a href="https://maps.app.goo.gl/UUibt3CDD6WRtYyk7?g_st=ic" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-full bg-stone-950 px-4 py-2.5 text-white text-sm font-semibold hover:bg-rose-600 transition">
+              <i data-lucide="map" class="w-4 h-4"></i> Google Maps <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+          <div class="md:col-span-3 min-w-0 rounded-xl overflow-hidden border border-stone-200 bg-white">
+            <div class="p-3 sm:p-4"><h3 class="font-display text-base sm:text-lg font-bold">Our Shop Location</h3><p class="text-xs sm:text-sm text-stone-500 mt-1">ဆိုင်တည်နေရာအတိအကျ</p></div>
+            <div class="h-64 sm:h-72 md:h-full md:min-h-[320px] border-t border-stone-200">
+              <iframe title="Lu's Collections Fashion Shop exact location in Taunggyi" class="w-full h-full border-0" src="https://maps.google.com/maps?output=embed&amp;q=Lu%27s%20Collections%20Fashion%20Shop%2C%20Taunggyi%20Myanmar&amp;ftid=0x30ce8797dfcc3e69%3A0x5583d66034b1d52" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+            </div>
           </div>
         </div>
-        <div>
-          <h3 class="font-semibold">Shopping</h3>
-          <div class="text-sm text-stone-500 space-y-2 mt-3">
-            <a href="#shop" onclick="showPage('shop');return false;" class="block hover:text-rose-600">All products</a>
-            <a href="#promos" onclick="showPage('promos');return false;" class="block hover:text-rose-600">Promotions</a>
+
+        <div class="w-full mt-5 sm:mt-6 border-y border-stone-200 bg-white p-4 sm:p-6 md:p-8 lg:px-10">
+          <h3 class="font-display text-lg sm:text-xl font-bold">အိမ်အရောက်ပို့ဆောင်မှုနှင့် ငွေပေးချေမှု</h3>
+          <p class="mt-3 sm:mt-4 text-sm sm:text-base leading-7 sm:leading-8 text-stone-700">တောင်ကြီးမြို့တွင်းအိမ်ရောက်ငွေချေရပါတယ်ရှင့်။ တောင်ကြီးမြို့ကဘဲဆိုရင် ဆိုင်မှာစိတ်တိုင်းကျလာရောက်ရွေးချယ်ဝတ်ကြည့်ပြီး အကြိုက်တွေ့မှအားပေးလို့ရပါတယ်ရှင့်။ အခြားသောမြို့များကတော့ငွေကြိုလွဲရပါမယ်ရှင့်။ ငွေလွဲဝင်ပြီးနောက်တစ်ရက် သက်ဆိုင်ရာ ကားဂိတ် (သို့) အိမ်အရောက်ပို့ Delivery စနစ်နဲ့ပို့ဆောင်ပေးပါတယ်နော်။</p>
+          <div class="mt-5 border-t border-stone-200 pt-4">
+            <p class="font-display text-base sm:text-lg font-bold">𝐓𝐡𝐚𝐧𝐤𝐬 𝐟𝐨𝐫 𝐬𝐡𝐨𝐩𝐩𝐢𝐧𝐠 𝐰𝐢𝐭𝐡 𝐋𝐮’𝐬 ♥️</p>
+          </div>
+        </div>
+
+        <div class="w-full mt-7 border-t border-stone-200 pt-5 px-4 sm:px-6 lg:px-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <div><div class="font-display text-lg sm:text-xl font-bold">LU'S COLLECTIONS</div><p class="text-stone-500 text-sm mt-1">☘️ Lu’s Collections Fashion Shop • Taunggyi, Shan State</p></div>
+          <div class="flex flex-wrap gap-4 text-sm text-stone-500">
+            <a href="#shop" onclick="showPage('shop');return false;" class="hover:text-rose-600">All products</a>
+            <a href="#promos" onclick="showPage('promos');return false;" class="hover:text-rose-600">Promotions</a>
             <button onclick="openCart()" class="hover:text-rose-600">Your cart</button>
           </div>
         </div>
@@ -329,10 +360,15 @@ async function loadStore(){
   applySettings();
 }
 function applySettings(){
-  const phone=document.getElementById('shopPhone'); if(phone) phone.textContent=settings.phone||'09-XXXXXXXXX';
-  const phoneLink=document.getElementById('shopPhoneLink'); if(phoneLink) phoneLink.href='tel:'+String(settings.phone||'09-XXXXXXXXX').replace(/\s+/g,'');
-  const address=document.getElementById('shopAddress'); if(address) address.textContent=settings.address||'တောင်ကြီးမြို့၊ ရှမ်းပြည်နယ်။';
-  const social=document.getElementById('socialLinks'); if(social) social.innerHTML=[['Viber',settings.viber],['Facebook',settings.facebook],['TikTok',settings.tiktok]].filter(x=>x[1]&&x[1]!=='#').map(x=>`<a href="${x[1]}" target="_blank" rel="noopener" class="px-3 py-1.5 rounded-full bg-stone-100 hover:bg-stone-200 text-xs">${x[0]}</a>`).join('');
+  const social=document.getElementById('socialLinks');
+  if(social) {
+    const socialItems=[
+      {name:'Facebook',url:settings.facebook&&settings.facebook!=='#'?settings.facebook:'https://www.facebook.com/luscollections',bg:'bg-white border-stone-200',svg:'<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#1877F2" d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.413c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.973h-1.514c-1.491 0-1.956.931-1.956 1.886v2.262h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>'},
+      {name:'TikTok',url:settings.tiktok&&settings.tiktok!=='#'?settings.tiktok:'https://tiktok.com/@lucollections?_r=1&_t=ZS-99QJwRSzUsG',bg:'bg-black border-black',svg:'<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#25F4EE" d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.32V2h-3.7v14.67a2.9 2.9 0 1 1-2.9-2.9c.3 0 .6.05.88.14v-3.78a6.7 6.7 0 1 0 5.72 6.62V9.28a8.46 8.46 0 0 0 4.95 1.59V7.18c-.4 0-.8-.17-1.18-.49z"/><path fill="#fff" d="M16.1 2h-3.7v14.67a2.9 2.9 0 1 1-2.9-2.9c.3 0 .6.05.88.14v-2.65a6.7 6.7 0 1 0 3.27 5.73V6.1a8.46 8.46 0 0 0 4.95 1.59V4.1a4.82 4.82 0 0 1-2.5-2.1z"/></svg>'},
+      {name:'Viber',url:settings.viber&&settings.viber!=='#'?(/^(https?:|viber:)/i.test(settings.viber)?settings.viber:'viber://chat?number=%2B'+settings.viber.replace(/\D/g,'')):'viber://chat?number=%2B959428326702',bg:'bg-[#7360F2] border-[#7360F2]',svg:'<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M18.9 2.2C15.1-.2 8.8-.2 5 2.2 1.2 4.6.6 9.5 1.6 14.1c.5 2.1 1.6 3.6 3.5 4.7v3.1c0 .8.9 1.2 1.5.7l2.8-2.2c2.2.4 4.6.3 6.6-.3 4.1-1.2 6.1-4.2 6.4-8.6.3-4.1-.9-7.4-3.5-9.3zM7.1 5.7c.3-.3.8-.3 1.1 0l1.5 1.8c.3.3.2.8-.1 1.1l-.7.6c.8 1.5 2 2.7 3.5 3.5l.6-.7c.3-.3.8-.4 1.1-.1l1.8 1.5c.3.3.3.8 0 1.1l-.8.8c-.5.5-1.3.7-2 .4-3.3-1.3-5.8-3.8-7.1-7.1-.3-.7-.1-1.5.4-2zM12 4.5c3.4 0 6.2 2.8 6.2 6.2h-1.5c0-2.6-2.1-4.7-4.7-4.7V4.5z"/></svg>'}
+    ];
+    social.innerHTML=socialItems.map(x=>`<a href="${x.url}" target="_blank" rel="noopener noreferrer" aria-label="Open Lu's Collections on ${x.name}" title="${x.name}" class="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full border ${x.bg} shadow-sm hover:-translate-y-0.5 hover:shadow-md transition focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2"><span class="block w-6 h-6 sm:w-7 sm:h-7">${x.svg}</span></a>`).join('');
+  }
   const shopName=settings.shop_name||"Lu's Collections";
   document.title=shopName+' — Fashion Catalog';
 }
@@ -381,8 +417,16 @@ function renderPromos(){
 }
 function showAllPromos(){promoShowAll=true;showPage('promos');}
 const sectionIds=['home','search','newArrivalsSection','ootd','shop','promos','about'];
+// Keep the catalog as one continuous page. Navigation only scrolls; it never hides other sections.
 function revealAllSections(){
-  sectionIds.forEach(id=>document.getElementById(id)?.classList.remove('hidden'));
+  sectionIds.forEach(id=>{
+    const section=document.getElementById(id);
+    if(!section) return;
+    section.classList.remove('hidden');
+    section.style.removeProperty('display');
+    section.removeAttribute('hidden');
+    section.setAttribute('aria-hidden','false');
+  });
 }
 function setActiveNav(page){
   document.querySelectorAll('[data-page-nav]').forEach(a=>{
@@ -392,31 +436,27 @@ function setActiveNav(page){
   });
 }
 function showPage(page,{updateHash=true}={}){
+  const validPages=['home','shop','promos','about'];
+  if(!validPages.includes(page)) page='home';
   currentPage=page;
   revealAllSections();
-  if(page==='shop')renderProducts();
-  if(page==='promos')renderPromos();
+  if(page==='shop') renderProducts();
+  if(page==='promos') renderPromos();
   setActiveNav(page);
 
+  // Use replaceState so the browser does not perform a competing instant anchor jump.
   if(updateHash){
     const nextHash='#'+page;
-    if(window.location.hash!==nextHash){
-      history.pushState({page},'',nextHash);
-    }
+    if(window.location.hash!==nextHash) history.pushState({page},'',nextHash);
   }
-
   if(page==='home'){
     window.scrollTo({top:0,behavior:'smooth'});
-    return;
-  }
-  const target=document.getElementById(page);
-  if(target){
-    target.scrollIntoView({behavior:'smooth',block:'start'});
+  } else {
+    document.getElementById(page)?.scrollIntoView({behavior:'smooth',block:'start'});
   }
 }
 function focusSearch(){
   revealAllSections();
-  setActiveNav('home');
   const search=document.getElementById('search');
   if(search) search.scrollIntoView({behavior:'smooth',block:'start'});
   setTimeout(()=>document.getElementById('searchInput')?.focus(),450);
