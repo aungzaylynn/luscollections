@@ -42,12 +42,8 @@
   <!-- Announcement -->
   <div class="bg-stone-950 text-stone-100 text-[11px] sm:text-xs overflow-hidden">
     <div class="marquee whitespace-nowrap py-2">
-      <span class="mx-8">✦ အမှာစာ ၅၀,၀၀၀ ကျပ်နှင့်အထက် ပို့ခအခမဲ့</span>
-      <span class="mx-8">✦ NEW ARRIVALS — 20% OFF</span>
-      <span class="mx-8">✦ Premium everyday wear • Plus Size available</span>
-      <span class="mx-8">✦ အမှာစာ ၅၀,၀၀၀ ကျပ်နှင့်အထက် ပို့ခအခမဲ့</span>
-      <span class="mx-8">✦ NEW ARRIVALS — 20% OFF</span>
-      <span class="mx-8">✦ Premium everyday wear • Plus Size available</span>
+      <span id="announcementText" class="mx-8">✦ အမှာစာ ၅၀,၀၀၀ ကျပ်နှင့်အထက် ပို့ခအခမဲ့ • NEW ARRIVALS — 20% OFF • Premium everyday wear • Plus Size available</span>
+      <span id="announcementTextClone" class="mx-8" aria-hidden="true">✦ အမှာစာ ၅၀,၀၀၀ ကျပ်နှင့်အထက် ပို့ခအခမဲ့ • NEW ARRIVALS — 20% OFF • Premium everyday wear • Plus Size available</span>
     </div>
   </div>
 
@@ -59,7 +55,7 @@
         <div class="text-[9px] tracking-[.32em] text-stone-500 -mt-1">COLLECTIONS</div>
       </a>
 
-      <nav class="hidden md:flex items-center gap-7 text-sm font-medium">
+      <nav class="flex items-center gap-3 sm:gap-5 text-xs sm:text-sm font-medium overflow-x-auto hide-scrollbar whitespace-nowrap">
         <a href="#home" data-page-nav="home" onclick="showPage('home');return false;" class="hover:text-rose-600">Home</a>
         <a href="#shop" data-page-nav="shop" onclick="showPage('shop');return false;" class="hover:text-rose-600">Shop</a>
         <a href="#promos" data-page-nav="promos" onclick="showPage('promos');return false;" class="hover:text-rose-600">Promos</a>
@@ -117,7 +113,7 @@
       </div>
       <div id="searchBox" class="relative">
         <i data-lucide="search" class="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-stone-400"></i>
-        <input id="searchInput" oninput="showAll=false; renderProducts()" type="search"
+        <input id="searchInput" oninput="showAll=true; renderProducts()" type="search"
           placeholder="Search dresses, tops, sleepwear..."
           class="w-full pl-12 pr-5 py-4 sm:py-5 rounded-2xl bg-white border border-stone-200 outline-none focus:ring-2 focus:ring-rose-200 focus:border-rose-300 shadow-sm text-sm sm:text-base">
       </div>
@@ -137,21 +133,8 @@
 
     <!-- 4. OOTD -->
     <section id="ootd" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
-      <div class="rounded-[28px] bg-rose-50 border border-rose-100 overflow-hidden grid md:grid-cols-2">
-        <div class="min-h-[340px] md:min-h-[500px]">
-          <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=85&w=1000&auto=format&fit=crop" class="w-full h-full object-cover" alt="OOTD">
-        </div>
-        <div class="p-7 sm:p-12 flex flex-col justify-center">
-          <span class="self-start bg-rose-600 text-white text-[10px] font-bold tracking-wider px-3 py-1.5 rounded-full">OOTD</span>
-          <h2 class="font-display text-3xl sm:text-4xl font-semibold mt-5">Casual elegance.</h2>
-          <p class="text-stone-600 text-sm leading-7 mt-4">ပေါ့ပါးသွက်လက်ပြီး နေ့စဉ်ဝတ်အတွက် အလွယ်တကူ match လုပ်လို့ရတဲ့ minimalist look.</p>
-          <div class="mt-6 space-y-2">
-            <div class="flex justify-between bg-white rounded-xl px-4 py-3 border border-rose-100"><span class="text-sm">Cream Silk Shirt</span><b class="text-sm">28,000 Ks</b></div>
-            <div class="flex justify-between bg-white rounded-xl px-4 py-3 border border-rose-100"><span class="text-sm">Wide Leg Trouser</span><b class="text-sm">35,000 Ks</b></div>
-          </div>
-          <button onclick="addBundle()" class="mt-5 w-full rounded-xl bg-stone-950 text-white py-3.5 text-sm font-semibold hover:bg-stone-800">Add full look • 63,000 Ks</button>
-        </div>
-      </div>
+      <div class="flex items-end justify-between gap-4 mb-6"><div><p class="text-rose-600 text-xs font-bold tracking-[.18em] uppercase">Style inspiration</p><h2 class="font-display text-3xl sm:text-4xl font-semibold mt-1">OOTD — Outfit of the Day</h2></div></div>
+      <div id="ootdContent" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5"><div class="text-sm text-stone-500">Loading OOTD…</div></div>
     </section>
 
     <!-- 5. SHOP CATALOG -->
@@ -180,6 +163,7 @@
         </div>
       </div>
 
+      <div id="shopBackWrap" class="hidden mb-4"><button onclick="backToMain()" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-stone-300 bg-white text-sm font-semibold"><i data-lucide="arrow-left" class="w-4 h-4"></i> Back to main page</button></div>
       <div id="productGrid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6"></div>
 
       <div id="viewAllWrap" class="text-center mt-8">
@@ -315,13 +299,13 @@
         <input required id="customerName" placeholder="Customer name" class="w-full border border-stone-200 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-rose-200">
         <input required id="customerPhone" placeholder="Phone number" class="w-full border border-stone-200 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-rose-200">
         <input id="customerEmail" type="email" placeholder="Email (optional)" class="w-full border border-stone-200 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-rose-200">
-        <textarea required id="customerAddress" rows="3" placeholder="Delivery address" class="w-full border border-stone-200 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-rose-200"></textarea>
+        <textarea required id="customerAddress" oninput="updateDeliveryOptions()" rows="3" placeholder="Delivery address" class="w-full border border-stone-200 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-rose-200"></textarea>
         <select id="paymentMethod" onchange="updatePaymentHint()" class="w-full border border-stone-200 rounded-xl px-4 py-3">
-          <option>Cash on Delivery</option><option>KBZPay</option><option>WavePay</option>
+          <option value="KBZPay">KPay</option><option value="Cash on Delivery">Cash on Delivery (Taunggyi only)</option>
         </select>
         <div id="paymentHint" class="rounded-xl bg-rose-50 text-rose-900 p-4 text-xs leading-6 hidden"></div>
         <input id="paymentReference" placeholder="Payment transaction ID / reference (optional)" class="w-full border border-stone-200 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-rose-200">
-        <textarea id="customerNote" rows="2" placeholder="Order note (optional)" class="w-full border border-stone-200 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-rose-200"></textarea>
+        <label class="block text-xs text-stone-600">KPay transaction screenshot (if already paid)<input id="paymentScreenshot" type="file" accept="image/*" class="block w-full mt-2 text-sm"></label><textarea id="customerNote" rows="2" placeholder="Order note (optional)" class="w-full border border-stone-200 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-rose-200"></textarea>
         <div class="rounded-xl bg-stone-50 p-4 flex justify-between"><span class="text-sm">Order total</span><b id="checkoutTotal"></b></div>
         <button class="w-full py-3.5 rounded-xl bg-rose-600 text-white font-semibold hover:bg-rose-700">Place order</button>
       </form>
@@ -333,11 +317,14 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="/config.js"></script>
 <script>
-const db = supabase.createClient(window.LUS_SUPABASE_URL, window.LUS_SUPABASE_ANON_KEY, {
+const SUPABASE_API_URL = window.LUS_SUPABASE_PROXY === false ? window.LUS_SUPABASE_URL : (window.location.origin + '/api/supabase');
+const db = supabase.createClient(SUPABASE_API_URL, window.LUS_SUPABASE_ANON_KEY, {
   auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}
 });
 let products=[];
 let settings={};
+let ootdPosts=[];
+function proxyImageUrl(url){if(!url)return url;const base=String(window.LUS_SUPABASE_URL||'').replace(/\/$/,'');return base&&url.startsWith(base+'/storage/v1/')?(window.location.origin+'/api/supabase'+url.slice(base.length)):url}
 let category='All';
 let showAll=false;
 let promoShowAll=false;
@@ -350,14 +337,15 @@ const money=n=>new Intl.NumberFormat('en-US').format(Number(n||0))+' Ks';
 const catalogCategories=['All','Top & Blouse','Dresses','Pants','Skirt','Cozy & Outerwear','Plus Size','Set & Suit','Sleepwear','Other'];
 
 async function loadStore(){
-  const [{data:productData,error:pe},{data:settingData,error:se}] = await Promise.all([
+  const [{data:productData,error:pe},{data:settingData,error:se},{data:ootdData,error:oe}] = await Promise.all([
     db.from('products').select('*').eq('is_active',true).order('created_at',{ascending:false}),
-    db.from('settings').select('key,value')
+    db.from('settings').select('key,value'),
+    db.from('ootd_posts').select('*').eq('is_active',true).order('sort_order',{ascending:true}).order('created_at',{ascending:false})
   ]);
-  if(pe) throw pe; if(se) throw se;
-  products=(productData||[]).map(p=>({...p,sizes:Array.isArray(p.sizes)?p.sizes:[],colors:Array.isArray(p.colors)?p.colors:[]}));
-  settings=Object.fromEntries((settingData||[]).map(x=>[x.key,x.value]));
-  applySettings();
+  if(pe) throw pe; if(se) throw se; if(oe) throw oe;
+  products=(productData||[]).map(p=>({...p,image:proxyImageUrl(p.image),images:(Array.isArray(p.images)&&p.images.length?p.images:[p.image].filter(Boolean)).map(proxyImageUrl),sizes:Array.isArray(p.sizes)?p.sizes:[],colors:Array.isArray(p.colors)?p.colors:[]}));
+  ootdPosts=(ootdData||[]).map(p=>({...p,image_url:proxyImageUrl(p.image_url)}));settings=Object.fromEntries((settingData||[]).map(x=>[x.key,x.value]));
+  applySettings();renderOotd();
 }
 function applySettings(){
   const social=document.getElementById('socialLinks');
@@ -365,10 +353,12 @@ function applySettings(){
     const socialItems=[
       {name:'Facebook',url:settings.facebook&&settings.facebook!=='#'?settings.facebook:'https://www.facebook.com/luscollections',bg:'bg-white border-stone-200',svg:'<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#1877F2" d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.413c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.973h-1.514c-1.491 0-1.956.931-1.956 1.886v2.262h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>'},
       {name:'TikTok',url:settings.tiktok&&settings.tiktok!=='#'?settings.tiktok:'https://tiktok.com/@lucollections?_r=1&_t=ZS-99QJwRSzUsG',bg:'bg-black border-black',svg:'<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#25F4EE" d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.32V2h-3.7v14.67a2.9 2.9 0 1 1-2.9-2.9c.3 0 .6.05.88.14v-3.78a6.7 6.7 0 1 0 5.72 6.62V9.28a8.46 8.46 0 0 0 4.95 1.59V7.18c-.4 0-.8-.17-1.18-.49z"/><path fill="#fff" d="M16.1 2h-3.7v14.67a2.9 2.9 0 1 1-2.9-2.9c.3 0 .6.05.88.14v-2.65a6.7 6.7 0 1 0 3.27 5.73V6.1a8.46 8.46 0 0 0 4.95 1.59V4.1a4.82 4.82 0 0 1-2.5-2.1z"/></svg>'},
-      {name:'Viber',url:settings.viber&&settings.viber!=='#'?(/^(https?:|viber:)/i.test(settings.viber)?settings.viber:'viber://chat?number=%2B'+settings.viber.replace(/\D/g,'')):'viber://chat?number=%2B959428326702',bg:'bg-[#7360F2] border-[#7360F2]',svg:'<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M18.9 2.2C15.1-.2 8.8-.2 5 2.2 1.2 4.6.6 9.5 1.6 14.1c.5 2.1 1.6 3.6 3.5 4.7v3.1c0 .8.9 1.2 1.5.7l2.8-2.2c2.2.4 4.6.3 6.6-.3 4.1-1.2 6.1-4.2 6.4-8.6.3-4.1-.9-7.4-3.5-9.3zM7.1 5.7c.3-.3.8-.3 1.1 0l1.5 1.8c.3.3.2.8-.1 1.1l-.7.6c.8 1.5 2 2.7 3.5 3.5l.6-.7c.3-.3.8-.4 1.1-.1l1.8 1.5c.3.3.3.8 0 1.1l-.8.8c-.5.5-1.3.7-2 .4-3.3-1.3-5.8-3.8-7.1-7.1-.3-.7-.1-1.5.4-2zM12 4.5c3.4 0 6.2 2.8 6.2 6.2h-1.5c0-2.6-2.1-4.7-4.7-4.7V4.5z"/></svg>'}
+      {name:'Viber',url:'https://www.viber.com/',bg:'bg-[#7360F2] border-[#7360F2]',svg:'<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M18.9 2.2C15.1-.2 8.8-.2 5 2.2 1.2 4.6.6 9.5 1.6 14.1c.5 2.1 1.6 3.6 3.5 4.7v3.1c0 .8.9 1.2 1.5.7l2.8-2.2c2.2.4 4.6.3 6.6-.3 4.1-1.2 6.1-4.2 6.4-8.6.3-4.1-.9-7.4-3.5-9.3zM7.1 5.7c.3-.3.8-.3 1.1 0l1.5 1.8c.3.3.2.8-.1 1.1l-.7.6c.8 1.5 2 2.7 3.5 3.5l.6-.7c.3-.3.8-.4 1.1-.1l1.8 1.5c.3.3.3.8 0 1.1l-.8.8c-.5.5-1.3.7-2 .4-3.3-1.3-5.8-3.8-7.1-7.1-.3-.7-.1-1.5.4-2zM12 4.5c3.4 0 6.2 2.8 6.2 6.2h-1.5c0-2.6-2.1-4.7-4.7-4.7V4.5z"/></svg>'}
     ];
     social.innerHTML=socialItems.map(x=>`<a href="${x.url}" target="_blank" rel="noopener noreferrer" aria-label="Open Lu's Collections on ${x.name}" title="${x.name}" class="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full border ${x.bg} shadow-sm hover:-translate-y-0.5 hover:shadow-md transition focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2"><span class="block w-6 h-6 sm:w-7 sm:h-7">${x.svg}</span></a>`).join('');
   }
+  const announcement=(settings.announcement_text||'✦ အမှာစာ ၅၀,၀၀၀ ကျပ်နှင့်အထက် ပို့ခအခမဲ့ • NEW ARRIVALS — 20% OFF • Premium everyday wear • Plus Size available').trim();
+  ['announcementText','announcementTextClone'].forEach(id=>{const el=document.getElementById(id);if(el)el.textContent=announcement});
   const shopName=settings.shop_name||"Lu's Collections";
   document.title=shopName+' — Fashion Catalog';
 }
@@ -401,11 +391,14 @@ function renderProducts(){
   document.getElementById('shopTitle').textContent=showAll?'Shop — All Products':'Shop Catalog';
   document.getElementById('productGrid').innerHTML=visible.length?visible.map(card).join(''):`<div class="col-span-full text-center py-16"><p class="font-display text-2xl">No pieces found.</p><p class="text-sm text-stone-500 mt-2">Try another search or category.</p></div>`;
   document.getElementById('viewAllWrap').classList.toggle('hidden',showAll||list.length<=6);
+  const back=document.getElementById('shopBackWrap');if(back)back.classList.toggle('hidden',!showAll);
+  const btn=document.querySelector('#viewAllWrap button');if(btn)btn.innerHTML='View All Products <i data-lucide="arrow-right" class="w-4 h-4"></i>';
   const na=document.getElementById('newArrivals'); if(na)na.innerHTML=products.filter(p=>p.is_featured).slice(0,4).map(card).join('');
   lucide.createIcons();
 }
-function setCategory(c){category=c;showAll=false;renderProducts();showPage('shop');}
-function showAllProducts(){showAll=true;showPage('shop');}
+function setCategory(c){category=c;showAll=true;renderProducts();showPage('shop');}
+function showAllProducts(){showAll=true;showPage('shop');document.getElementById('shop').scrollIntoView({behavior:'smooth'});}
+function backToMain(){showAll=false;category='All';promoShowAll=false;showPage('home');renderProducts();window.scrollTo({top:0,behavior:'smooth'});}
 function promoProducts(){return products.filter(p=>p.old_price);}
 function renderPromos(){
   const list=promoProducts();const visible=promoShowAll?list:list.slice(0,6);
@@ -480,22 +473,39 @@ function renderCart(){
 }
 function openCart(){document.getElementById('cartOverlay').classList.remove('hidden');requestAnimationFrame(()=>document.getElementById('cartDrawer').classList.remove('closed'));renderCart()}
 function closeCart(){document.getElementById('cartDrawer').classList.add('closed');setTimeout(()=>document.getElementById('cartOverlay').classList.add('hidden'),250)}
-function openProduct(id){const p=products.find(x=>x.id===id);if(!p)return;selectedSize=p.sizes?.[0]||'';selectedColor=p.colors?.[0]||'';document.getElementById('productDetail').innerHTML=`<div class="grid md:grid-cols-2"><div class="aspect-[4/5]"><img src="${p.image}" class="w-full h-full object-cover"></div><div class="p-6 sm:p-9 flex flex-col"><div class="flex justify-between"><div><p class="text-rose-600 text-xs font-bold tracking-wider uppercase">${p.category}</p><h2 class="font-display text-3xl font-semibold mt-2">${p.name}</h2></div><button onclick="closeProduct()" class="p-2">×</button></div><div class="mt-4"><b class="text-xl">${money(p.price)}</b>${p.old_price?` <span class="text-sm text-stone-400 line-through ml-2">${money(p.old_price)}</span>`:''}</div><p class="text-sm text-stone-600 leading-7 mt-5">${p.description||''}</p><div class="mt-7"><label class="text-xs font-bold uppercase tracking-wider">Size</label><div class="flex flex-wrap gap-2 mt-2">${(p.sizes||[]).map(s=>`<button onclick="selectSize('${s}',this)" class="sizeOpt px-4 py-2 rounded-lg border text-xs ${s===selectedSize?'bg-stone-950 text-white':''}">${s}</button>`).join('')}</div></div><div class="mt-5"><label class="text-xs font-bold uppercase tracking-wider">Color</label><div class="flex flex-wrap gap-2 mt-2">${(p.colors||[]).map(c=>`<button onclick="selectColor('${c}',this)" class="px-4 py-2 rounded-lg border text-xs ${c===selectedColor?'bg-stone-950 text-white':''}">${c}</button>`).join('')}</div></div><button ${p.stock<=0?'disabled':''} onclick="addToCart(${p.id});closeProduct()" class="mt-auto pt-6 disabled:opacity-40"><span class="block w-full py-3.5 rounded-xl bg-stone-950 text-white text-sm font-semibold">${p.stock<=0?'Sold out':'Add to bag • '+money(p.price)}</span></button></div></div>`;document.getElementById('productModal').classList.remove('hidden')}
+function openViber(event,number){event.preventDefault();const digits=String(number||'959428326702').replace(/\D/g,'');const deep='viber://chat?number=%2B'+digits;const fallback='https://www.viber.com/';window.location.href=deep;setTimeout(()=>{if(!document.hidden)window.location.href=fallback;},1200);return false;}
+function openProduct(id){const p=products.find(x=>x.id===id);if(!p)return;selectedSize=p.sizes?.[0]||'';selectedColor=p.colors?.[0]||'';const gallery=p.images?.length?p.images:[p.image];const galleryHtml=`<div><div class="aspect-[4/5] bg-stone-100"><img id="detailMainImage" src="${gallery[0]}" class="w-full h-full object-cover"></div>${gallery.length>1?`<div class="flex gap-2 p-2 overflow-x-auto">${gallery.map((u,i)=>`<button onclick="selectProductImage(${JSON.stringify(u).replace(/"/g,'&quot;')})" class="shrink-0"><img src="${u}" class="w-14 h-16 object-cover rounded-lg border"></button>`).join('')}</div>`:''}</div>`;document.getElementById('productDetail').innerHTML=`<div class="grid md:grid-cols-2">${galleryHtml}<div class="p-6 sm:p-9 flex flex-col"><div class="flex justify-between"><div><p class="text-rose-600 text-xs font-bold tracking-wider uppercase">${p.category}</p><h2 class="font-display text-3xl font-semibold mt-2">${p.name}</h2></div><button onclick="closeProduct()" class="p-2">×</button></div><div class="mt-4"><b class="text-xl">${money(p.price)}</b>${p.old_price?` <span class="text-sm text-stone-400 line-through ml-2">${money(p.old_price)}</span>`:''}</div><p class="text-sm text-stone-600 leading-7 mt-5">${p.description||''}</p><div class="mt-7"><label class="text-xs font-bold uppercase tracking-wider">Size</label><div class="flex flex-wrap gap-2 mt-2">${(p.sizes||[]).map(s=>`<button onclick="selectSize('${s}',this)" class="sizeOpt px-4 py-2 rounded-lg border text-xs ${s===selectedSize?'bg-stone-950 text-white':''}">${s}</button>`).join('')}</div></div><div class="mt-5"><label class="text-xs font-bold uppercase tracking-wider">Color</label><div class="flex flex-wrap gap-2 mt-2">${(p.colors||[]).map(c=>`<button onclick="selectColor('${c}',this)" class="px-4 py-2 rounded-lg border text-xs ${c===selectedColor?'bg-stone-950 text-white':''}">${c}</button>`).join('')}</div></div><button ${p.stock<=0?'disabled':''} onclick="addToCart(${p.id});closeProduct()" class="mt-auto pt-6 disabled:opacity-40"><span class="block w-full py-3.5 rounded-xl bg-stone-950 text-white text-sm font-semibold">${p.stock<=0?'Sold out':'Add to bag • '+money(p.price)}</span></button><button ${p.stock<=0?'disabled':''} onclick="orderNow(${p.id})" class="mt-2 w-full py-3 rounded-xl border border-rose-300 text-rose-700 text-sm font-semibold">Order Now</button><a href="https://viber.me/${String(settings.viber||'959428326702').replace(/\\D/g,'')}" target="_blank" rel="noopener" class="mt-2 block text-center w-full py-3 rounded-xl bg-violet-600 text-white text-sm font-semibold">Order via Viber</a></div></div>`;document.getElementById('productModal').classList.remove('hidden')}
+function orderNow(id){const p=products.find(x=>x.id===id);if(!p||p.stock<=0)return;cart=[];cart.push({key:`${id}-${p.sizes?.[0]||''}-${p.colors?.[0]||''}`,id,qty:1,size:p.sizes?.[0]||'',color:p.colors?.[0]||''});saveCart();renderCart();updateCartCount();closeProduct();openCheckout()}
+function selectProductImage(url){const el=document.getElementById('detailMainImage');if(el)el.src=url}
+function renderOotd(){const el=document.getElementById('ootdContent');if(!el)return;if(!ootdPosts.length){el.innerHTML='<div class="col-span-full text-sm text-stone-500">OOTD အသစ်များ မကြာမီ တင်ပေးပါမယ်။</div>';return}el.innerHTML=ootdPosts.map(p=>`<article class="rounded-2xl overflow-hidden border border-stone-200 bg-white"><img src="${p.image_url}" alt="${p.title}" class="w-full aspect-[4/5] object-cover"><div class="p-5"><span class="inline-flex bg-rose-600 text-white text-[10px] font-bold tracking-wider px-3 py-1.5 rounded-full">OOTD</span><h3 class="font-display text-xl font-semibold mt-3">${p.title}</h3><p class="text-sm text-stone-600 leading-6 mt-2 whitespace-pre-line">${p.caption||''}</p></div></article>`).join('')}
 function selectSize(v,e){selectedSize=v;e.parentElement.querySelectorAll('button').forEach(b=>b.classList.remove('bg-stone-950','text-white'));e.classList.add('bg-stone-950','text-white')}
 function selectColor(v,e){selectedColor=v;e.parentElement.querySelectorAll('button').forEach(b=>b.classList.remove('bg-stone-950','text-white'));e.classList.add('bg-stone-950','text-white')}
 function closeProduct(){document.getElementById('productModal').classList.add('hidden')}
+function isTaunggyiAddress(value){return /taunggyi|တောင်ကြီး/i.test(String(value||''))}
+function updateDeliveryOptions(){
+  const address=document.getElementById('customerAddress').value;
+  const taunggyi=isTaunggyiAddress(address);
+  const sel=document.getElementById('paymentMethod');
+  const cod=[...sel.options].find(o=>o.value==='Cash on Delivery');
+  if(cod)cod.disabled=!taunggyi;
+  if(!taunggyi && sel.value==='Cash on Delivery')sel.value='KBZPay';
+  document.getElementById('checkoutTotal').textContent=money(cartTotal()+(taunggyi?0:Number(settings.other_city_delivery_fee||settings.delivery_fee||2500)));
+  updatePaymentHint();
+}
 function updatePaymentHint(){
   const m=document.getElementById('paymentMethod').value;
   const hint=document.getElementById('paymentHint');
-  if(m==='KBZPay' && settings.kbzpay){hint.innerHTML=`KBZPay: <b>${settings.kbzpay}</b><br>ငွေလွှဲပြီးရင် transaction/reference နံပါတ်ကို အောက်မှာထည့်ပေးပါ။`;hint.classList.remove('hidden')}
-  else if(m==='WavePay' && settings.wavepay){hint.innerHTML=`WavePay: <b>${settings.wavepay}</b><br>ငွေလွှဲပြီးရင် transaction/reference နံပါတ်ကို အောက်မှာထည့်ပေးပါ။`;hint.classList.remove('hidden')}
+  if(m==='KBZPay'){hint.innerHTML=`Order တင်ပြီးနောက် Pending ဖြစ်နေပါမယ်။ Admin မှ Confirm လုပ်ပြီး KPay အချက်အလက်ပေးမှ ငွေလွှဲပေးပါ။`;hint.classList.remove('hidden')}
   else {hint.classList.add('hidden');hint.innerHTML=''}
 }
-function openCheckout(){if(!cart.length){toast('Your bag is empty');return}closeCart();document.getElementById('checkoutTotal').textContent=money(cartTotal()+Number(settings.delivery_fee||0));document.getElementById('checkoutModal').classList.remove('hidden');updatePaymentHint()}
+function openCheckout(){if(!cart.length){toast('Your bag is empty');return}closeCart();document.getElementById('paymentScreenshot').value='';document.getElementById('checkoutModal').classList.remove('hidden');updateDeliveryOptions()}
 function closeCheckout(){document.getElementById('checkoutModal').classList.add('hidden')}
 async function placeOrder(e){
   e.preventDefault();
   try{
+    const address=document.getElementById('customerAddress').value;
+    const taunggyi=isTaunggyiAddress(address);
+    if(!taunggyi && paymentMethod.value==='Cash on Delivery'){paymentMethod.value='KBZPay';throw new Error('တောင်ကြီးမြို့အတွက်သာ COD ရွေးနိုင်ပါတယ်။ KPay ကိုရွေးပေးပါ။')}
     const items=cart.map(i=>({productId:i.id,qty:i.qty,size:i.size||'',color:i.color||''}));
     const {data,error}=await db.rpc('create_order',{
       p_customer_name:customerName.value,
@@ -505,10 +515,19 @@ async function placeOrder(e){
       p_note:customerNote.value||'',
       p_payment_method:paymentMethod.value,
       p_payment_reference:paymentReference.value||'',
-      p_items:items
+      p_items:items,
+      p_delivery_fee:taunggyi?0:Number(settings.other_city_delivery_fee||settings.delivery_fee||2500)
     });
     if(error) throw error;
     const phone=customerPhone.value;
+    const proof=document.getElementById('paymentScreenshot').files[0];
+    if(proof && data?.orderNo){
+      const ext=(proof.name.split('.').pop()||'jpg').toLowerCase();
+      const path=`${data.orderNo}/${Date.now()}.${ext}`;
+      const {error:upErr}=await db.storage.from('payment-proofs').upload(path,proof,{upsert:false,contentType:proof.type});
+      if(upErr) console.warn('Screenshot upload failed:',upErr.message);
+      else await db.rpc('attach_payment_proof',{p_order_no:data.orderNo,p_phone:phone,p_path:path});
+    }
     cart=[];saveCart();closeCheckout();
     await loadStore();renderProducts();renderPromos();
     toast(`Order ${data.orderNo} received`);
@@ -518,6 +537,16 @@ async function placeOrder(e){
 function addBundle(){const a=products.find(p=>p.name==='Casual Linen Blouse');const b=products.find(p=>p.name==='Wide Leg Trouser');if(a)addToCart(a.id);if(b)addToCart(b.id)}
 function setPromo(){promoShowAll=false;showPage('promos')}
 
+let storeRefreshTimer;
+function enableStoreRealtime(){
+  db.channel('lus-store-live')
+    .on('postgres_changes',{event:'*',schema:'public',table:'products'},()=>scheduleStoreRefresh())
+    .on('postgres_changes',{event:'*',schema:'public',table:'settings'},()=>scheduleStoreRefresh())
+    .on('postgres_changes',{event:'*',schema:'public',table:'ootd_posts'},()=>scheduleStoreRefresh())
+    .subscribe();
+}
+function scheduleStoreRefresh(){clearTimeout(storeRefreshTimer);storeRefreshTimer=setTimeout(async()=>{try{await loadStore();renderProducts();renderPromos();renderOotd()}catch(e){console.warn('Live refresh failed',e)}},350)}
+enableStoreRealtime();
 (async()=>{
   try{
     await loadStore();
